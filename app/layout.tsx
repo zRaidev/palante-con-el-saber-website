@@ -5,7 +5,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: "Pa'lante Con El Saber - Elige tu futuro",
   description: 'Ayudamos a jóvenes con la elección de su bachillerato. Decide bien hoy, para llegar lejos mañana.',
-  generator: 'v0.app',
+  generator: 'Isaac Vergara',
   icons: {
     icon: [
       {
@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className="font-sans antialiased">
+      <body className="font-[system-ui] antialiased">
         {children}
         <Analytics />
       </body>
