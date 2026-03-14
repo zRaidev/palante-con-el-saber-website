@@ -1,26 +1,16 @@
-import { Target, Users, Lightbulb, Heart } from "lucide-react"
+import { Target, Telescope } from "lucide-react"
 
 export default function AboutSection() {
   const features = [
     {
       icon: Target,
-      title: "Orientación Vocacional",
-      description: "Te ayudamos a descubrir tus fortalezas y pasiones para elegir el bachillerato ideal."
+      title: "Mision",
+      description: "Consolidar un modelo integral de orientación vocacional reconocido como referente nacional, institucionalizado en el sistema educativo, que articule educación media, educación superior y sector productivo mediante alianzas estratégicas, programas vocacionales prácticos y una red de profesionales mentores, impactando de manera sostenible la toma de decisiones académicas."
     },
     {
-      icon: Users,
-      title: "Acompañamiento Personalizado",
-      description: "Mentores capacitados te guiarán en cada paso de tu proceso de decisión."
-    },
-    {
-      icon: Lightbulb,
-      title: "Información Clara",
-      description: "Conoce todas las opciones de bachillerato disponibles y sus salidas profesionales."
-    },
-    {
-      icon: Heart,
-      title: "Desarrollo Sostenible",
-      description: "Promovemos decisiones educativas que contribuyan a un futuro más sostenible."
+      icon: Telescope,
+      title: "Vision",
+      description: "Consolidar un modelo de orientación vocacional innovador y sostenible que articule el sistema educativo, la educación superior y el sector productivo, contribuyendo a que los jóvenes en Panamá tomen decisiones académicas informadas y alineadas con su potencial."
     }
   ]
 
@@ -34,41 +24,42 @@ export default function AboutSection() {
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto mb-6" />
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Somos un proyecto de desarrollo sostenible dedicado a empoderar a los jóvenes 
-            en una de las decisiones más importantes de su vida académica: la elección del bachillerato.
+            Es un proyecto juvenil panameño nacido en el Laboratorio Latinoamericano de Acción Ciudadana 2026 que acompaña a estudiantes de 9° grado en la elección de su bachillerato.
           </p>
         </div>
 
         {/* Features grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 justify-items-center mt-12">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-card rounded-xl p-6 shadow-sm border border-border hover:shadow-md transition-shadow group"
+              className="mt-16 bg-linear-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 w-[80%]"
             >
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="h-7 w-7 text-primary" />
+              <div className="flex flex-row align-middle justify-center">
+                <h3 className="font-serif text-xl font-semibold text-white mb-4">
+                  {feature.title}
+                </h3>
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground">
+              <p className="text-white/80">
                 {feature.description}
               </p>
             </div>
           ))}
         </div>
 
+        <div className="w-full outline mt-28 rounded-4xl" />
+
         {/* Mission statement */}
-        <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-white mb-4">
-            Nuestra Misión
+        <div className="mt-40 rounded-2xl p-8 md:p-12 text-center">
+          <h3 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">
+            Enfrentamos un problema
           </h3>
-          <p className="text-white/90 max-w-3xl mx-auto text-lg leading-relaxed">
-            Brindar a cada joven las herramientas, la información y el apoyo necesarios 
-            para que puedan tomar una decisión informada sobre su futuro académico, 
-            contribuyendo así al desarrollo sostenible de nuestra comunidad.
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            En el contexto educativo actual, un porcentaje significativo de jóvenes entre 14 y 15 años que cursan la premedia (9° grado) eligen su bachiller sin contar con un proceso estructurado de orientación académica, basándose principalmente en...
           </p>
+          <a className="bg-primary text-white hover:bg-primary/90 py-2 px-12 rounded-lg mt-10 inline-block" href="/problema">
+            Ver más
+          </a>
         </div>
       </div>
     </section>
