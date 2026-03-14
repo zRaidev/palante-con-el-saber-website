@@ -14,14 +14,14 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-background shadow-sm">
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo - Solo imagen */}
           <a href="#" className="flex items-center">
             <img 
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Y1H8s1EmnC2YC1kitZqejmlsDDWrl5.png" 
+              src="/logo.svg" 
               alt="Pa'lante con el saber"
-              className="h-12 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </a>
 
@@ -31,7 +31,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-foreground font-medium hover:text-primary transition-colors underline underline-offset-4"
+                  className="text-foreground font-medium hover:text-primary transition-colors underline-offset-4"
                 >
                   {link.label}
                 </a>
