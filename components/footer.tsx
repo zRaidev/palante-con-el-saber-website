@@ -6,11 +6,12 @@ export default function Footer() {
       { href: "#inicio", label: "Inicio" },
       { href: "#sobre-nosotros", label: "Sobre nosotros" },
       { href: "#contactanos", label: "Contáctanos" },
+      { href: "#alianzas", label: "Alianzas estratégicas" },
     ],
     recursos: [
-      { href: "#", label: "Test vocacional" },
-      { href: "#", label: "Guía de bachilleratos" },
-      { href: "#", label: "Consejos para estudiantes" },
+      { href: "https://www.instagram.com/palanteconelsaber", label: "Instagram" },
+      { href: "https://www.tiktok.com/@palanteconelsaber", label: "Tiktok" },
+      { href: "https://www.linkedin.com/company/pa-lante-con-el-saber", label: "LinkedIn" },
     ]
   }
 
@@ -34,11 +35,11 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Navigation links */}
+          {/* Resources */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Navegación</h4>
+            <h4 className="font-semibold text-lg mb-4">Nuestras Redes</h4>
             <ul className="space-y-2">
-              {links.navegacion.map((link, index) => (
+              {links.recursos.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
@@ -51,11 +52,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
+                    {/* Navigation links */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Recursos</h4>
+            <h4 className="font-semibold text-lg mb-4">Navegación</h4>
             <ul className="space-y-2">
-              {links.recursos.map((link, index) => (
+              {links.navegacion.map((link, index) => (
                 <li key={index}>
                   <a
                     href={link.href}
