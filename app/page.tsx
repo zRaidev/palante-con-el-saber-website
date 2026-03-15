@@ -4,6 +4,7 @@ import AboutSection from "@/components/about-section"
 import BachilleratosSection from "@/components/bachilleratos-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
+import AlliancesSection from "@/components/alliances-section"
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <AboutSection />
+      <AlliancesSection />
       <BachilleratosSection />
       <ContactSection />
       <Footer />
