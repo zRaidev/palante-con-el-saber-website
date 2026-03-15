@@ -7,9 +7,10 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navLinks = [
-    { href: "#inicio", label: "Inicio" },
-    { href: "#sobre-nosotros", label: "Sobre nosotros" },
-    { href: "#contactanos", label: "Contactanos" },
+    { href: "/", label: "Inicio" },
+    { href: "/problema", label: "El problema" },
+    { href: "/equipo", label: "Nuestro equipo" },
+    { href: "#contactanos", label: "Contáctanos" }
   ]
 
   return (
