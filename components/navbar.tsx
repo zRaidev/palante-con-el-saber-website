@@ -10,7 +10,7 @@ export default function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/problema", label: "El problema" },
     { href: "/equipo", label: "Nuestro equipo" },
-    { href: "#contactanos", label: "Contáctanos" }
+    { href: "/#contactanos", label: "Contáctanos" }
   ]
 
   return (

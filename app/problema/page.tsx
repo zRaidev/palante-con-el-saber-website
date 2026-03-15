@@ -182,7 +182,7 @@ export default function ProblemaPage() {
 
       {/* Solución Section */}
       <section className="py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-95" />
+        <div className="absolute inset-0 bg-linear-to-r from-primary to-secondary opacity-95" />
         <div className="relative container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
