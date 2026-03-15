@@ -168,19 +168,13 @@ const handleSubmit = async (e: React.FormEvent) => {
               ))}
             </div>
 
-            {/* CTA */}
-            <div className="mt-12 p-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
+            <div className="mt-12 py-8 px-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
               <h4 className="font-serif text-xl font-bold text-white mb-2">
-                ¿Listo para tomar la decisión correcta?
+                ¿Deseas aliarte con nosotros?
               </h4>
               <p className="text-white/90 mb-4">
-                Agenda una sesión de orientación vocacional gratuita.
+                Puedes contactarnos para explorar oportunidades como alianza estratégica.
               </p>
-              <a href="/agenda">
-                <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                  Agendar cita
-                </Button>
-              </a>
             </div>
           </div>
         </div>

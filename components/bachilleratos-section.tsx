@@ -61,7 +61,7 @@ export default function BachilleratosSection() {
               key={index}
               className="bg-card rounded-xl overflow-hidden shadow-sm border border-border hover:shadow-lg transition-all group cursor-pointer"
             >
-              <div className="bg-gradient-to-r from-primary to-secondary p-6">
+              <div className="bg-linear-to-r from-primary to-secondary p-6">
                 <bach.icon className="h-10 w-10 text-white mb-2" />
                 <h3 className="font-serif text-xl font-bold text-white">
                   {bach.title}
