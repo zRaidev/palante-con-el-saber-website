@@ -168,7 +168,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               ))}
             </div>
 
-            <div className="mt-12 py-8 px-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
+            <div className="hidden lg:block mt-12 py-8 px-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
               <h4 className="font-serif text-xl font-bold text-white mb-2">
                 ¿Deseas aliarte con nosotros?
               </h4>
