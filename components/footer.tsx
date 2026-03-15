@@ -1,5 +1,3 @@
-import { BookOpen, Heart } from "lucide-react"
-
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -17,20 +15,19 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-r from-primary to-secondary text-white">
+    <footer className="bg-linear-to-r from-primary to-secondary text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <BookOpen className="h-8 w-8 text-white" strokeWidth={1.5} />
+              <img src="/logo-white.png" className="h-8 w-8 " alt="Pa'lante Con El Saber" />
               <span className="font-serif text-xl font-bold text-white">
                 {"Pa'lante Con El Saber"}
               </span>
             </div>
             <p className="text-white/80 max-w-md mb-4">
-              Proyecto de desarrollo sostenible dedicado a empoderar a los jóvenes 
-              en la elección de su bachillerato, contribuyendo a construir un futuro mejor.
+              Proyecto juvenil panameño nacido en el Laboratorio Latinoamericano de Acción Ciudadana 2026
             </p>
             <p className="text-white/80 font-serif italic text-lg">
               {"\"Decide bien hoy, para llegar lejos mañana\""}
@@ -78,7 +75,7 @@ export default function Footer() {
             © {currentYear} {"Pa'lante Con El Saber"}. Todos los derechos reservados.
           </p>
           <p className="text-white/80 text-sm flex items-center gap-1">
-            Hecho con <Heart className="h-4 w-4 text-red-400 fill-red-400" /> para el desarrollo sostenible
+            Made by <a className="font-bold" target="_blank" href="https://www.linkedin.com/in/i-vergara/">Isaac Vergara</a>
           </p>
         </div>
       </div>
