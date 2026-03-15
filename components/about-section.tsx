@@ -29,7 +29,7 @@ export default function AboutSection() {
         </div>
 
         {/* Features grid */}
-        <div className="grid grid-rows-2 lg:grid-cols-2 justify-items-center mt-12">
+        <div className="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 justify-items-center mt-12">
           {features.map((feature, index) => (
             <div
               key={index}
