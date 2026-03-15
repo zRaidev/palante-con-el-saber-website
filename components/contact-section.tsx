@@ -1,7 +1,8 @@
 "use client"
 
+import emailjs from "@emailjs/browser"
 import { useState } from "react"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, Instagram, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ContactSection() {
@@ -11,32 +12,67 @@ export default function ContactSection() {
     message: ""
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-    alert("¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.")
-    setFormData({ name: "", email: "", message: "" })
+  const [mailStatus, setMailStatus] = useState<string | null>(null)
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault()
+
+  // Validación
+  if (!formData.name || !formData.email || !formData.message) {
+    setMailStatus("Completa todos los campos")
+    return;
   }
+
+  if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    setMailStatus("Ingresa un correo electrónico válido")
+    return;
+  }
+
+  try {
+
+    await emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      },
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    )
+
+    setMailStatus("Mensaje enviado correctamente")
+
+    setFormData({
+      name: "",
+      email: "",
+      message: ""
+    })
+
+  } catch (error) {
+    console.error("Error enviando email:", error)
+    setMailStatus("Hubo un error enviando el mensaje")
+  }
+}
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "contacto@palanteconelsaber.org",
-      href: "mailto:contacto@palanteconelsaber.org"
+      value: "palanteconelsaber@gmail.com",
+      href: "mailto:palanteconelsaber@gmail.com"
     },
     {
       icon: Phone,
       label: "Teléfono",
-      value: "+34 123 456 789",
-      href: "tel:+34123456789"
+      value: "+507 6666-6666",
+      href: "tel:+50766666666"
     },
     {
-      icon: MapPin,
-      label: "Ubicación",
-      value: "Tu ciudad, España",
-      href: "#"
+      icon: Instagram,
+      label: "Instagram",
+      value: "@palanteconelsaber",
+      href: "https://www.instagram.com/palanteconelsaber/"
     }
   ]
 
@@ -108,6 +144,7 @@ export default function ContactSection() {
                 <Send className="h-4 w-4 mr-2" />
                 Enviar mensaje
               </Button>
+              {mailStatus && <span className={`text-sm ${mailStatus.includes("correctamente") ? "text-green-500" : "text-red-500"}`}>{mailStatus}</span>}
             </form>
           </div>
 
@@ -132,16 +169,18 @@ export default function ContactSection() {
             </div>
 
             {/* CTA */}
-            <div className="mt-12 p-6 bg-gradient-to-r from-primary to-secondary rounded-xl text-center">
+            <div className="mt-12 p-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
               <h4 className="font-serif text-xl font-bold text-white mb-2">
                 ¿Listo para tomar la decisión correcta?
               </h4>
               <p className="text-white/90 mb-4">
                 Agenda una sesión de orientación vocacional gratuita.
               </p>
-              <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                Agendar cita
-              </Button>
+              <a href="/agenda">
+                <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
+                  Agendar cita
+                </Button>
+              </a>
             </div>
           </div>
         </div>
