@@ -1,11 +1,11 @@
-import AcpLogo from '../public/alliances-logos/acp.png';
-import JuxlaeLogo from '../public/alliances-logos/juxlae.png';
 import LogoLoop from './LogoLoop';
-import AspadeLogo from '../public/alliances-logos/aspade.png';
-import HardplotLogo from '../public/alliances-logos/hardplot.png';
-import JudLogo from '../public/alliances-logos/jud.png';
-import SilveraLezcanoLogo from '../public/alliances-logos/silvera-lezcano.png';
-import AepsiLogo from '../public/alliances-logos/aepsi.png';
+import AcpLogo from '../public/alliances-logos/acp.webp';
+import JuxlaeLogo from '../public/alliances-logos/juxlae.webp';
+import AspadeLogo from '../public/alliances-logos/aspade.webp';
+import HardplotLogo from '../public/alliances-logos/hardplot.webp';
+import JudLogo from '../public/alliances-logos/jud.webp';
+import SilveraLezcanoLogo from '../public/alliances-logos/silvera-lezcano.webp';
+import AepsiLogo from '../public/alliances-logos/aepsi.webp';
 
 const techLogos = [
   { node: <img src={AcpLogo.src} alt="Aspade" />, title: "Aspade", href: "https://www.pancanal.com/" },
