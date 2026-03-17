@@ -23,23 +23,23 @@ interface TeamMember {
 
 const team: TeamMember[] = [
   // --- COORDINADORES (11) ---
-  { name: "Eduardo Navarro", role: "Coordinador General", category: "Coordinador", image: "/team/eduardo.png" },
-  { name: "Gabriel Almengor", role: "Subcoordinador General", category: "Coordinador", image: "/team/gabriel.png" },
-  { name: "Emely Van Horn", role: "Secretaria General", category: "Coordinador", image: "/team/emely.png" },
-  { name: "Elías González", role: "Director de Presupuesto", category: "Coordinador", image: "/team/elias.png" },
-  { name: "Isaac Vergara", role: "Coord. de Académico", category: "Coordinador", image: "/team/isaac.png" },
-  { name: "Makenzie Agrazal", role: "Coord. de Académica", category: "Coordinador", image: "/team/makenzie.png" },
-  { name: "Paola Fong", role: "Coord. de Datos", category: "Coordinador", image: "/team/paola.png" },
-  { name: "Alfonso Quintero", role: "Coord. de Datos", category: "Coordinador", image: "/team/alfonso.png" },
-  { name: "Sharlis Herrera", role: "Coord. de Logística", category: "Coordinador", image: "/team/sharlis.png" },
-  { name: "Samantha Araúz", role: "Coord. de Redes", category: "Coordinador", image: "/team/samantha.png" },
-  { name: "Noreida Machado", role: "Coord. de Redes", category: "Coordinador", image: "/team/noreida.png" },
+  { name: "Eduardo Navarro", role: "Coordinador General", category: "Coordinador", image: "/team/eduardo.webp" },
+  { name: "Gabriel Almengor", role: "Subcoordinador General", category: "Coordinador", image: "/team/gabriel.webp" },
+  { name: "Emely Van Horn", role: "Secretaria General", category: "Coordinador", image: "/team/emely.webp" },
+  { name: "Elías González", role: "Director de Presupuesto", category: "Coordinador", image: "/team/elias.webp" },
+  { name: "Isaac Vergara", role: "Coord. de Académico", category: "Coordinador", image: "/team/isaac.webp" },
+  { name: "Makenzie Agrazal", role: "Coord. de Académica", category: "Coordinador", image: "/team/makenzie.webp" },
+  { name: "Paola Fong", role: "Coord. de Datos", category: "Coordinador", image: "/team/paola.webp" },
+  { name: "Alfonso Quintero", role: "Coord. de Datos", category: "Coordinador", image: "/team/alfonso.webp" },
+  { name: "Sharlis Herrera", role: "Coord. de Logística", category: "Coordinador", image: "/team/sharlis.webp" },
+  { name: "Samantha Araúz", role: "Coord. de Redes", category: "Coordinador", image: "/team/samantha.webp" },
+  { name: "Noreida Machado", role: "Coord. de Redes", category: "Coordinador", image: "/team/noreida.webp" },
   // ... Agrega los otros 8 aquí
   
   // --- MENTORES (3) ---
-  { name: "Julio César Barría", role: "Mentor", category: "Mentor", image: "/team/julio.png" },
-  { name: "Yarlines García", role: "Mentor Asistente", category: "Mentor", image: "/team/yarlines.png" },
-  { name: "Aarón Murillo", role: "Mentor Académico", category: "Mentor", image: "/team/aaron.png" },
+  { name: "Julio César Barría", role: "Mentor", category: "Mentor", image: "/team/julio.webp" },
+  { name: "Yarlines García", role: "Mentor Asistente", category: "Mentor", image: "/team/yarlines.webp" },
+  { name: "Aarón Murillo", role: "Mentor Académico", category: "Mentor", image: "/team/aaron.webp" },
 ];
 
 export function TeamSection() {
