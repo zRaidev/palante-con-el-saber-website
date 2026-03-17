@@ -65,8 +65,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     {
       icon: Phone,
       label: "Teléfono",
-      value: "+507 6666-6666",
-      href: "tel:+50766666666"
+      value: "+507 6627-7967",
+      href: "tel:+50766277967"
     },
     {
       icon: Instagram,

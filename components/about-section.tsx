@@ -4,12 +4,12 @@ export default function AboutSection() {
   const features = [
     {
       icon: Target,
-      title: "Mision",
+      title: "Misión",
       description: "Consolidar un modelo integral de orientación vocacional reconocido como referente nacional, institucionalizado en el sistema educativo, que articule educación media, educación superior y sector productivo mediante alianzas estratégicas, programas vocacionales prácticos y una red de profesionales mentores, impactando de manera sostenible la toma de decisiones académicas."
     },
     {
       icon: Telescope,
-      title: "Vision",
+      title: "Visión",
       description: "Consolidar un modelo de orientación vocacional innovador y sostenible que articule el sistema educativo, la educación superior y el sector productivo, contribuyendo a que los jóvenes en Panamá tomen decisiones académicas informadas y alineadas con su potencial."
     }
   ]
