@@ -19,7 +19,7 @@ export default function Navbar() {
       <nav className="relative container mx-auto px-4 py-2">
         <div className="flex items-center justify-between relative">
           {/* Logo - Solo imagen */}
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex items-center">
             <img 
               src="/logo.svg" 
               alt="Pa'lante con el saber"
