@@ -14,9 +14,10 @@ export default function Navbar() {
   ]
 
   return (
+    <div className='sticky top-0 z-50 shadow-sm'>
     <header className="sticky top-0 z-50 bg-background shadow-sm">
-      <nav className="container mx-auto px-4 py-2">
-        <div className="flex items-center justify-between">
+      <nav className="relative container mx-auto px-4 py-2">
+        <div className="flex items-center justify-between relative">
           {/* Logo - Solo imagen */}
           <a href="#" className="flex items-center">
             <img 
@@ -49,24 +50,30 @@ export default function Navbar() {
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <ul className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t border-border pt-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-foreground font-medium hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
       </nav>
     </header>
+    {/* Mobile Navigation */}
+<div
+  className={`
+    absolute left-0 top-[35%] w-full bg-background border-t border-border z-30
+    transition-transform duration-350 ease-in-out
+    ${isMenuOpen ? "translate-y-[35%]" : "-translate-y-[65%]"}
+  `}
+>
+  <ul className="flex flex-col gap-4 p-4">
+    {navLinks.map((link) => (
+      <li key={link.href}>
+        <a
+          href={link.href}
+          className="text-foreground font-medium hover:text-primary transition-colors"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+    </div>
   )
 }
