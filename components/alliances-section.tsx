@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import LogoLoop from './LogoLoop';
 import AcpLogo from '../public/alliances-logos/acp.webp';
 import JuxlaeLogo from '../public/alliances-logos/juxlae.webp';
@@ -18,16 +21,29 @@ const techLogos = [
 ];
 
 export default function AllianceSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // breakpoint md
+    };
+
+    handleResize(); // ejecutar al inicio
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="pt-12 bg-gray-100">
       <h2 className="font-serif text-3xl md:text-4xl font-bold mb-16 text-center">Nuestras Alianzas</h2>
       <div style={{ height: '200px', position: 'relative', overflow: 'hidden' }}>
         <LogoLoop
           logos={techLogos}
-          speed={80}
+          speed={isMobile ? 110 : 80}
+          gap={isMobile ? 120 : 200}
           direction="left"
           logoHeight={100}
-          gap={200}
           hoverSpeed={0}
           scaleOnHover
           fadeOut
