@@ -3,7 +3,7 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Pa'lante Con El Saber - Elige tu futuro",
+  title: "Pa'lante Con El Saber",
   description: 'Ayudamos a jóvenes con la elección de su bachillerato. Decide bien hoy, para llegar lejos mañana.',
   generator: 'Isaac Vergara',
   icons: {
