@@ -17,25 +17,10 @@ export const metadata: Metadata = {
   },
   generator: 'Isaac Vergara',
   icons: {
-    icon: [
-      {
-        url: '/favicon.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/favicon.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/favicon.svg',
-        type: 'image/svg+xml',
-      },
-      {
-        url: '/favicon.ico'
-      }
-    ],
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
     apple: '/favicon.png',
-  },
+  }
 }
 
 export default function RootLayout({
