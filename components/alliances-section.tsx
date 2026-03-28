@@ -9,6 +9,8 @@ import HardplotLogo from '../public/alliances-logos/hardplot.webp';
 import JudLogo from '../public/alliances-logos/jud.webp';
 import SilveraLezcanoLogo from '../public/alliances-logos/silvera-lezcano.webp';
 import AepsiLogo from '../public/alliances-logos/aepsi.webp';
+import InnovaNationLogo from '../public/alliances-logos/innova-nation.webp';
+import VaczLogo from '../public/alliances-logos/vacz.webp';
 
 const techLogos = [
   { node: <img src={AcpLogo.src} alt="Aspade" />, title: "Aspade", href: "https://www.pancanal.com/" },
@@ -17,7 +19,9 @@ const techLogos = [
   { node: <img src={HardplotLogo.src} alt="Hardplot" />, title: "Hardplot", href: "https://hardplot.com" },
   { node: <img src={JudLogo.src} alt="Jud" />, title: "Juped", href: "https://www.instagram.com/jud_usma" },
   { node: <img src={SilveraLezcanoLogo.src} alt="Silvera Lezcano" />, title: "Silvera Lezcano", href: "https://www.silalaw.com/" },
-  { node: <img src={AepsiLogo.src} alt="Aepsi" />, title: "Asep", href: "https://www.instagram.com/aepsi" }
+  { node: <img src={AepsiLogo.src} alt="Aepsi" />, title: "Asep", href: "https://www.instagram.com/aepsi" },
+  { node: <img src={InnovaNationLogo.src} alt="Innova Nation" />, title: "Innova Nation", href: "https://www.innovanationfest.com/" },
+  { node: <img src={VaczLogo.src} alt="Vacz" />, title: "Vacz", href: "https://www.vaczart.com/" }
 ];
 
 export default function AllianceSection() {
