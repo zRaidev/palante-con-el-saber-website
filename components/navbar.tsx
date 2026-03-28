@@ -21,7 +21,7 @@ export default function Navbar() {
           {/* Logo - Solo imagen */}
           <a href="/" className="flex items-center">
             <img 
-              src="/logo.svg" 
+              src="/favicon.svg" 
               alt="Pa'lante con el saber"
               className="h-20 w-auto object-contain"
             />

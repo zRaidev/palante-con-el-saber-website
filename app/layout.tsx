@@ -19,22 +19,22 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/logo.png',
+        url: '/favicon.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/logo.png',
+        url: '/favicon.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/logo.svg',
+        url: '/favicon.svg',
         type: 'image/svg+xml',
       },
       {
         url: '/favicon.ico'
       }
     ],
-    apple: '/logo.png',
+    apple: '/favicon.png',
   },
 }
 
