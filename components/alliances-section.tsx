@@ -20,7 +20,7 @@ const techLogos = [
   { node: <img src={JudLogo.src} alt="Jud" />, title: "Juped", href: "https://www.instagram.com/jud_usma" },
   { node: <img src={SilveraLezcanoLogo.src} alt="Silvera Lezcano" />, title: "Silvera Lezcano", href: "https://www.silalaw.com/" },
   { node: <img src={AepsiLogo.src} alt="Aepsi" />, title: "Asep", href: "https://www.instagram.com/aepsi" },
-  { node: <img src={InnovaNationLogo.src} alt="Innova Nation" />, title: "Innova Nation", href: "https://www.innovanationfest.com/" },
+  { node: <img src={InnovaNationLogo.src} alt="Innova Nation" />, title: "Innova Nation", href: "https://www.instagram.com/innovanation.pa/" },
   { node: <img src={VaczLogo.src} alt="Vacz" />, title: "Vacz", href: "https://www.vaczart.com/" }
 ];
 
