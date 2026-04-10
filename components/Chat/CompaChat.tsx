@@ -8,6 +8,7 @@ export default function CompaChat() {
   // Extraemos las funciones y estados del hook
   const { messages, sendMessage, loading } = useCompa();
   const [input, setInput] = useState("");
+  const [isLocked, setIsLocked] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -36,6 +37,13 @@ export default function CompaChat() {
     }
   };
 
+  useEffect(() => {
+    const hasVeredicto = messages.some(msg =>
+      msg.content.includes("[VEREDICTO_FINAL]")
+    );
+    if (hasVeredicto) setIsLocked(true);
+  }, [messages]);
+
   return (
     <div style={{
       minHeight: "100vh",
@@ -61,14 +69,18 @@ export default function CompaChat() {
             <div key={i} className={`msg-row ${msg.role}`}>
               {msg.role === "assistant" && <div className="avatar">🤠</div>}
               <div className={`bubble ${msg.role}`}>
-                {msg.content}
+                {msg.content.replace("[VEREDICTO_FINAL]", "").trim()}
               </div>
             </div>
           ))}
           {loading && (
-            <div className="msg-row assistant">
+            <div className="typing-indicator">
               <div className="avatar">🤠</div>
-              <div className="bubble assistant">Escribiendo...</div>
+              <div className="dots">
+                <div className="dot" />
+                <div className="dot" />
+                <div className="dot" />
+              </div>
             </div>
           )}
           <div ref={bottomRef} />
@@ -78,7 +90,7 @@ export default function CompaChat() {
           <textarea
             ref={inputRef}
             className="input-box"
-            placeholder="Chatea con tu Compa..."
+            placeholder={isLocked ? "El proceso ha concluído" : "Chatea con tu Compa..."}
             value={input}
             onChange={e => {
               setInput(e.target.value);
@@ -87,12 +99,12 @@ export default function CompaChat() {
             }}
             onKeyDown={handleKey}
             rows={1}
-            disabled={loading}
+            disabled={loading || isLocked}
           />
           <button
             className="send-btn"
             onClick={handleSend}
-            disabled={loading || !input.trim()}
+            disabled={loading || !input.trim() || isLocked}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a1628" strokeWidth="2.5">
               <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />

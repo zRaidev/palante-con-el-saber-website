@@ -175,21 +175,31 @@
 		align-items: flex-end;
 	}
 	
+	/* Update your existing .input-box class */
 	.input-box {
-		flex: 1;
-		background: rgba(255,255,255,0.06);
-		border: 1px solid rgba(255,255,255,0.1);
-		border-radius: 14px;
-		padding: 12px 16px;
-		color: #e8edf5;
-		font-family: 'Source Sans 3', sans-serif;
-		font-size: 15px;
-		resize: none;
-		outline: none;
-		transition: border-color 0.2s, background 0.2s;
-		max-height: 120px;
-		min-height: 46px;
-		line-height: 1.5;
+	  flex: 1;
+	  background: rgba(255,255,255,0.06);
+	  border: 1px solid rgba(255,255,255,0.1);
+	  border-radius: 14px;
+	  padding: 12px 16px;
+	  color: #e8edf5;
+	  font-family: 'Source Sans 3', sans-serif;
+	  font-size: 15px;
+	  resize: none;
+	  outline: none;
+	  transition: border-color 0.2s, background 0.2s;
+	  max-height: 120px;
+	  min-height: 46px;
+	  line-height: 1.5;
+	
+	  /* Add these two lines to hide the scrollbar in Firefox and IE/Edge */
+	  scrollbar-width: none; 
+	  -ms-overflow-style: none; 
+	}
+	
+	/* Add this new block to hide the scrollbar in WebKit browsers (Chrome, Safari, Edge) */
+	.input-box::-webkit-scrollbar {
+	  display: none;
 	}
 	
 	.input-box::placeholder { color: rgba(255,255,255,0.3); }
