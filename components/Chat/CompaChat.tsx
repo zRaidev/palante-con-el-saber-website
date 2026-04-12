@@ -5,14 +5,27 @@ import { useCompa } from "@/hooks/useCompa";
 import "./CompaChat.css";
 
 export default function CompaChat() {
-  // Extraemos las funciones y estados del hook
+  // Extract functions and states from the hook
   const { messages, sendMessage, loading } = useCompa();
   const [input, setInput] = useState("");
   const [isLocked, setIsLocked] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
-  // Scroll automático al final de los mensajes
+  // Load locked state from localStorage on mount
+  useEffect(() => {
+    const savedLockedState = localStorage.getItem('compaChatLocked');
+    if (savedLockedState === 'true') {
+      setIsLocked(true);
+    }
+  }, []);
+
+  // Save locked state to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('compaChatLocked', isLocked.toString());
+  }, [isLocked]);
+
+  // Automatic scroll to the end of messages
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
@@ -21,10 +34,10 @@ export default function CompaChat() {
     const text = input.trim();
     if (!text || loading) return;
 
-    sendMessage(text); // Viene del hook useCompa
+    sendMessage(text); // Comes from the useCompa hook
     setInput("");
     
-    // Resetear altura del textarea
+    // Reset textarea height
     if (inputRef.current) {
       inputRef.current.style.height = "46px";
     }
