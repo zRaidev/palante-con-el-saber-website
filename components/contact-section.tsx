@@ -168,7 +168,16 @@ const handleSubmit = async (e: React.FormEvent) => {
               ))}
             </div>
 
-            <div className="hidden lg:block mt-12 py-8 px-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
+            {mailStatus && mailStatus !== "Mensaje enviado correctamente" && (
+              <div className="mt-8 p-4 bg-muted/50 rounded-lg border border-border">
+                <p className="text-sm text-muted-foreground">
+                  <strong>¿Encontraste un error o problema técnico?</strong><br />
+                  Usa nuestra <a href="/report" className="text-primary hover:underline font-medium">página de reportes</a> para informar bugs, sugerencias o problemas en el sitio web.
+                </p>
+              </div>
+            )}
+
+            <div className="hidden lg:block mt-8 py-8 px-6 bg-linear-to-r from-primary to-secondary rounded-xl text-center">
               <h4 className="font-serif text-xl font-bold text-white mb-2">
                 ¿Deseas aliarte con nosotros?
               </h4>

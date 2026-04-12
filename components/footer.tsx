@@ -7,6 +7,7 @@ export default function Footer() {
       { href: "#sobre-nosotros", label: "Sobre nosotros" },
       { href: "#contactanos", label: "Contáctanos" },
       { href: "#alianzas", label: "Alianzas estratégicas" },
+      { href: "/report", label: "Reportar error" },
     ],
     recursos: [
       { href: "https://www.instagram.com/palanteconelsaber", label: "Instagram" },
