@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { COMPA_SYSTEM_PROMPT } from '@/constants/prompts';
 
 export interface Message {
@@ -11,6 +11,26 @@ export const useCompa = () => {
     { role: 'assistant', content: "¡Qué xopá! Soy Compa, tu guía aquí en Pa'lante con el Saber. ¿Cómo te llamas, fren?" }
   ]);
   const [loading, setLoading] = useState(false);
+
+  // Load messages from localStorage when the hook mounts
+  useEffect(() => {
+    const savedMessages = localStorage.getItem("compaChatMessages");
+    if (savedMessages) {
+      try {
+        setMessages(JSON.parse(savedMessages));
+      } catch (error) {
+        console.error("Error parsing chat history", error);
+      }
+    }
+  }, []);
+
+  // Save messages to localStorage every time the messages array changes
+  useEffect(() => {
+    // Optional: Only save if there are messages to avoid overwriting with an empty array on first render
+    if (messages.length > 0) {
+      localStorage.setItem("compaChatMessages", JSON.stringify(messages));
+    }
+  }, [messages]);
 
   const sendMessage = async (input: string) => {
   const userMsg: Message = { role: 'user', content: input };
