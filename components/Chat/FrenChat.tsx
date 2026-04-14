@@ -58,8 +58,10 @@ export default function FrenChat() {
   }, [messages]);
 
   return (
-    <div style={{
-      minHeight: "100vh",
+    <div className="chat-page-shell" style={{
+      minHeight: "100dvh",
+      height: "100dvh",
+      width: "100%",
       background: "linear-gradient(135deg, #0a1628 0%, #0d2444 50%, #0a1628 100%)",
       display: "flex",
       flexDirection: "column",
