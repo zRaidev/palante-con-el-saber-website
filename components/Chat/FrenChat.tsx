@@ -1,12 +1,12 @@
 'use client';
 
 import { useState, useRef, useEffect } from "react";
-import { useCompa } from "@/hooks/useCompa";
-import "./CompaChat.css";
+import { useFren } from "@/hooks/useFren";
+import "./FrenChat.css";
 
-export default function CompaChat() {
+export default function FrenChat() {
   // Extract functions and states from the hook
-  const { messages, sendMessage, loading } = useCompa();
+  const { messages, sendMessage, loading } = useFren();
   const [input, setInput] = useState("");
   const [isLocked, setIsLocked] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ export default function CompaChat() {
 
   // Load locked state from localStorage on mount
   useEffect(() => {
-    const savedLockedState = localStorage.getItem('compaChatLocked');
+    const savedLockedState = localStorage.getItem('frenChatLocked');
     if (savedLockedState === 'true') {
       setIsLocked(true);
     }
@@ -22,7 +22,7 @@ export default function CompaChat() {
 
   // Save locked state to localStorage whenever it changes
   useEffect(() => {
-    localStorage.setItem('compaChatLocked', isLocked.toString());
+    localStorage.setItem('frenChatLocked', isLocked.toString());
   }, [isLocked]);
 
   // Automatic scroll to the end of messages
@@ -34,7 +34,7 @@ export default function CompaChat() {
     const text = input.trim();
     if (!text || loading) return;
 
-    sendMessage(text); // Comes from the useCompa hook
+    sendMessage(text); // Comes from the useFren hook
     setInput("");
     
     // Reset textarea height
@@ -72,7 +72,7 @@ export default function CompaChat() {
         <header className="chat-header">
           <div className="logo-circle">🤝</div>
           <div className="header-text">
-            <h1>El Compa de Pa'lante</h1>
+            <h1>El Fren de Pa'lante</h1>
             <p>Orientación vocacional · Activo</p>
           </div>
         </header>
@@ -103,7 +103,7 @@ export default function CompaChat() {
           <textarea
             ref={inputRef}
             className="input-box"
-            placeholder={isLocked ? "El proceso ha concluído" : "Chatea con tu Compa..."}
+            placeholder={isLocked ? "El proceso ha concluído" : "Chatea con El Fren..."}
             value={input}
             onChange={e => {
               setInput(e.target.value);

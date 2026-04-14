@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
-import { COMPA_SYSTEM_PROMPT } from '@/constants/prompts';
+import { FREN_SYSTEM_PROMPT } from '@/constants/prompts';
 
 export interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
 
-export const useCompa = () => {
+export const useFren = () => {
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: "¡Qué xopá! Soy Compa, tu guía aquí en Pa'lante con el Saber. ¿Cómo te llamas, fren?" }
+    { role: 'assistant', content: "¡Qué xopá! Soy El Fren, tu guía aquí en Pa'lante con el Saber. ¿Cómo te llamas, fren?" }
   ]);
   const [loading, setLoading] = useState(false);
 
   // Load messages from localStorage when the hook mounts
   useEffect(() => {
-    const savedMessages = localStorage.getItem("compaChatMessages");
+    const savedMessages = localStorage.getItem("frenChatMessages");
     if (savedMessages) {
       try {
         setMessages(JSON.parse(savedMessages));
@@ -28,7 +28,7 @@ export const useCompa = () => {
   useEffect(() => {
     // Optional: Only save if there are messages to avoid overwriting with an empty array on first render
     if (messages.length > 0) {
-      localStorage.setItem("compaChatMessages", JSON.stringify(messages));
+      localStorage.setItem("frenChatMessages", JSON.stringify(messages));
     }
   }, [messages]);
 
@@ -52,11 +52,11 @@ export const useCompa = () => {
     const contentsWithContext = [
       {
         role: 'user',
-        parts: [{ text: `CONTEXTO DE TU ROL: ${COMPA_SYSTEM_PROMPT}. RESPONDE A PARTIR DE AQUÍ.` }]
+        parts: [{ text: `CONTEXTO DE TU ROL: ${FREN_SYSTEM_PROMPT}. RESPONDE A PARTIR DE AQUÍ.` }]
       },
       {
         role: 'model',
-        parts: [{ text: "¡Ofi fren! Ya capté el flow. Soy Compa y estoy listo para guiar a los muchachos de Pa'lante con el Saber. ¿Qué xopá?" }]
+        parts: [{ text: "¡Ofi fren! Ya capté el flow. Soy El Fren y estoy listo para guiar a los muchachos de Pa'lante con el Saber. ¿Qué xopá?" }]
       },
       ...history
     ];
@@ -87,7 +87,7 @@ export const useCompa = () => {
     setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
 
   } catch (e) {
-    console.error("Error en useCompa:", e);
+    console.error("Error en useFren:", e);
     setMessages(prev => [...prev, { role: 'assistant', content: "Ey fren, algo pasó con la conexión. Dale de nuevo." }]);
   } finally {
     setLoading(false);

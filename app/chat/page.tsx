@@ -1,9 +1,9 @@
-import CompaChat from '@/components/Chat/CompaChat';
+import FrenChat from '@/components/Chat/FrenChat';
 
 export default function ChatPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
-      <CompaChat />
+      <FrenChat />
     </main>
   );
 }
