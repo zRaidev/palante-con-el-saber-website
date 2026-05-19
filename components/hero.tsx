@@ -5,6 +5,15 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { FadeIn } from "@/components/animations"
 
+const floatingShapes = [
+  { size: 6, x: "10%", y: "25%", duration: 6, delay: 0 },
+  { size: 4, x: "85%", y: "20%", duration: 8, delay: 1 },
+  { size: 8, x: "70%", y: "65%", duration: 7, delay: 2 },
+  { size: 5, x: "20%", y: "75%", duration: 9, delay: 0.5 },
+  { size: 3, x: "50%", y: "35%", duration: 5, delay: 1.5 },
+  { size: 12, x: "90%", y: "45%", duration: 10, delay: 0.8, opacity: 0.15 },
+]
+
 export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden">
@@ -27,6 +36,30 @@ export default function Hero() {
             d="M0,0 L1440,0 L1440,360 Q720,400 0,360 Z"
           />
         </svg>
+
+        {/* Floating decorative shapes */}
+        {floatingShapes.map((shape, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-white/10 pointer-events-none"
+            style={{
+              width: shape.size * 4,
+              height: shape.size * 4,
+              left: shape.x,
+              top: shape.y,
+            }}
+            animate={{
+              y: [0, -20, 0, 15, 0],
+              opacity: [0.2, 0.5, 0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: shape.duration,
+              repeat: Infinity,
+              delay: shape.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
         
         <div className="relative z-10 container mx-auto px-4 py-20 md:py-32 lg:py-24">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">

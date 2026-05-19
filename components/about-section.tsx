@@ -35,7 +35,7 @@ export default function AboutSection() {
         <StaggerContainer className="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <StaggerItem key={index} direction="up" distance={30} className="flex">
-              <div className="flex-1 bg-linear-to-r from-primary to-secondary rounded-2xl p-8 md:p-12 flex flex-col items-center">
+              <div className="flex-1 bg-linear-to-r from-primary to-secondary animated-gradient rounded-2xl p-8 md:p-12 flex flex-col items-center">
                 <h3 className="font-serif text-xl font-semibold text-white mb-4">
                   {feature.title}
                 </h3>
