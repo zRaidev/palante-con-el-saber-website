@@ -21,7 +21,7 @@ export default function Navbar() {
           {/* Logo - Solo imagen */}
           <a href="/" className="flex items-center">
             <img 
-              src="/favicon.svg" 
+              src="/favicon.svg"
               alt="Pa'lante con el saber"
               className="h-20 w-auto object-contain"
             />
@@ -47,32 +47,32 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </nav>
     </header>
-    {/* Mobile Navigation */}
+      {/* Mobile Navigation */}
 <div
   className={`
-    absolute left-0 top-[35%] w-full bg-background border-t border-border z-30
+    md:hidden block absolute left-0 top-[35%] w-full bg-background border-t border-border z-30
     transition-transform duration-350 ease-in-out
     ${isMenuOpen ? "translate-y-[35%]" : "-translate-y-[65%]"}
   `}
->
-  <ul className="flex flex-col gap-4 p-4">
-    {navLinks.map((link) => (
+      >
+        <ul className="flex flex-col gap-4 p-4">
+          {navLinks.map((link) => (
       <li key={link.href}>
-        <a
-          href={link.href}
+              <a
+                href={link.href}
           className="text-foreground font-medium hover:text-primary transition-colors"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          {link.label}
-        </a>
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </a>
       </li>
-    ))}
-  </ul>
+          ))}
+        </ul>
 </div>
     </div>
   )

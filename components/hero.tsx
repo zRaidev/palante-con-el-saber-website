@@ -1,5 +1,9 @@
-import { BookOpen, Star, ArrowRight, Users } from "lucide-react"
+"use client"
+
+import { Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { FadeIn } from "@/components/animations"
 
 export default function Hero() {
   return (
@@ -27,34 +31,48 @@ export default function Hero() {
         <div className="relative z-10 container mx-auto px-4 py-20 md:py-32 lg:py-24">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
             <div className="flex-1 text-center md:text-left">
-              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white italic leading-tight text-balance">
-                Decide bien hoy, para llegar lejos mañana
-              </h1>
+              <FadeIn direction="up" distance={40}>
+                <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-white italic leading-tight text-balance">
+                  Decide bien hoy, para llegar lejos mañana
+                </h1>
+              </FadeIn>
               
-              <p className="mt-3 text-white/90 text-lg md:text-xl max-w-lg">
-                Te acompañamos en tu elección de bachillerato
-              </p>
+              <FadeIn direction="up" distance={30} delay={0.2}>
+                <p className="mt-3 text-white/90 text-lg md:text-xl max-w-lg">
+                  Te acompañamos en tu elección de bachillerato
+                </p>
+              </FadeIn>
               
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className=" text-black hover:text-white hover:bg-white/10 font-semibold px-8"
-                  asChild
-                >
-                  <a href="#contactanos">
-                    <Users className="mr-2 h-5 w-5" />
-                    Solicitar orientacion
-                  </a>
-                </Button>
-              </div>
+              <FadeIn direction="up" distance={20} delay={0.4}>
+                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className=" text-black hover:text-white hover:bg-white/10 font-semibold px-8"
+                    asChild
+                  >
+                    <a href="#contactanos">
+                      <Users className="mr-2 h-5 w-5" />
+                      Solicitar orientacion
+                    </a>
+                  </Button>
+                </div>
+              </FadeIn>
             </div>
 
             {/* Right content - Logo */}
             <div className="hidden flex-1 lg:flex justify-center md:justify-end">
-              <div className="relative flex flex-col items-center backdrop-blur-sm rounded-3xl p-8 md:p-12">
-                <img src='/logo-white.png' alt="Pa'lante con el saber" className="w-80" />
-              </div>
+              <FadeIn direction="right" distance={60} delay={0.3} duration={0.9}>
+                <div className="relative flex flex-col items-center backdrop-blur-sm rounded-3xl p-8 md:p-12">
+                  <motion.img
+                    src='/logo-white.png'
+                    alt="Pa'lante con el saber"
+                    className="w-80"
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                </div>
+              </FadeIn>
             </div>
           </div>
         </div>

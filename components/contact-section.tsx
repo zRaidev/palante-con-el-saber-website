@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser"
 import { useState } from "react"
 import { Mail, Phone, Instagram, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Reveal } from "@/components/animations"
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -80,20 +81,23 @@ const handleSubmit = async (e: React.FormEvent) => {
     <section id="contactanos" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Section header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">
-            Contáctanos
-          </h2>
-          <div className="w-24 h-1 bg-gold mx-auto mb-6" />
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            ¿Tienes preguntas sobre tu futuro académico? Estamos aquí para ayudarte. 
-            Escríbenos y te responderemos lo antes posible.
-          </p>
-        </div>
+        <Reveal direction="up">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary mb-4">
+              Contáctanos
+            </h2>
+            <div className="w-24 h-1 bg-gold mx-auto mb-6" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              ¿Tienes preguntas sobre tu futuro académico? Estamos aquí para ayudarte. 
+              Escríbenos y te responderemos lo antes posible.
+            </p>
+          </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact form */}
-          <div className="bg-card rounded-xl p-6 md:p-8 shadow-sm border border-border">
+          <Reveal direction="left" distance={60}>
+            <div className="bg-card rounded-xl p-6 md:p-8 shadow-sm border border-border">
             <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
               Envíanos un mensaje
             </h3>
@@ -147,8 +151,10 @@ const handleSubmit = async (e: React.FormEvent) => {
               {mailStatus && <span className={`text-sm ${mailStatus.includes("correctamente") ? "text-green-500" : "text-red-500"}`}>{mailStatus}</span>}
             </form>
           </div>
+          </Reveal>
 
           {/* Contact info */}
+          <Reveal direction="right" distance={60}>
           <div className="flex flex-col justify-center">
             <div className="space-y-8">
               {contactInfo.map((info, index) => (
@@ -186,6 +192,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               </p>
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

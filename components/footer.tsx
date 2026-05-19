@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/animations"
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -19,6 +21,7 @@ export default function Footer() {
   return (
     <footer className="bg-linear-to-r from-primary to-secondary text-white">
       <div className="container mx-auto px-4 py-12">
+        <Reveal direction="up">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -80,6 +83,7 @@ export default function Footer() {
             Made by <a className="font-bold" target="_blank" href="https://www.linkedin.com/in/i-vergara/">Isaac Vergara</a>
           </p>
         </div>
+        </Reveal>
       </div>
     </footer>
   )
