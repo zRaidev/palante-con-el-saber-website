@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es">
-      <body className="font-[system-ui] antialiased">
+    <html lang="es" style={{ backgroundColor: '#0a1628' }}>
+      <body className="font-[system-ui] antialiased" style={{ backgroundColor: '#0a1628' }}>
         {children}
         <Analytics />
         <SpeedInsights />
