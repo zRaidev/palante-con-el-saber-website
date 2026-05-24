@@ -10,11 +10,12 @@ export default function Navbar() {
     { href: "/", label: "Inicio" },
     { href: "/problema", label: "El problema" },
     { href: "/equipo", label: "Nuestro equipo" },
-    { href: "/#contactanos", label: "Contáctanos" }
+    { href: "/#contactanos", label: "Contáctanos" },
+    { href: "/chat", label: "El Fren AI", highlight: true }
   ]
 
   return (
-    <div className='sticky top-0 z-50 shadow-sm'>
+    <div className='sticky top-0 z-50 shadow-sm relative'>
     <header className="sticky top-0 z-50 bg-background shadow-sm">
       <nav className="relative container mx-auto px-4 py-2">
         <div className="flex items-center justify-between relative">
@@ -31,12 +32,21 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-foreground font-medium hover:text-primary transition-colors underline-offset-4"
-                >
-                  {link.label}
-                </a>
+                {link.highlight ? (
+                  <a
+                    href={link.href}
+                    className="bg-primary text-primary-foreground font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity shadow-sm"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <a
+                    href={link.href}
+                    className="text-foreground font-medium hover:text-primary transition-colors underline-offset-4"
+                  >
+                    {link.label}
+                  </a>
+                )}
               </li>
             ))}
           </ul>
@@ -53,27 +63,38 @@ export default function Navbar() {
       </nav>
     </header>
       {/* Mobile Navigation */}
-<div
-  className={`
-    md:hidden block absolute left-0 top-[35%] w-full bg-background border-t border-border z-30
-    transition-transform duration-350 ease-in-out
-    ${isMenuOpen ? "translate-y-[35%]" : "-translate-y-[65%]"}
-  `}
+      <div
+        className={`
+          md:hidden absolute left-0 w-full bg-background border-t border-border z-30
+          transition-transform duration-350 ease-in-out
+          ${isMenuOpen ? "translate-y-0" : "-translate-y-full"}
+        `}
+        style={{ top: '100%' }}
       >
         <ul className="flex flex-col gap-4 p-4">
           {navLinks.map((link) => (
-      <li key={link.href}>
-              <a
-                href={link.href}
-          className="text-foreground font-medium hover:text-primary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-      </li>
+            <li key={link.href}>
+              {link.highlight ? (
+                <a
+                  href={link.href}
+                  className="block bg-primary text-primary-foreground font-semibold px-5 py-3 rounded-full text-center hover:opacity-90 transition-opacity"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  href={link.href}
+                  className="block text-foreground font-medium hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )}
+            </li>
           ))}
         </ul>
-</div>
+      </div>
     </div>
   )
 }
