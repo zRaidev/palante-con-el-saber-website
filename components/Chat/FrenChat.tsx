@@ -9,6 +9,7 @@ export default function FrenChat() {
   const { messages, sendMessage, loading } = useFren();
   const [input, setInput] = useState("");
   const [isLocked, setIsLocked] = useState(false)
+  const [isTakingLong, setIsTakingLong] = useState(false)
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
@@ -29,6 +30,15 @@ export default function FrenChat() {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
+
+  // Show "taking long" message after 8 seconds of loading
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => setIsTakingLong(true), 8500);
+      return () => clearTimeout(timer);
+    }
+    setIsTakingLong(false);
+  }, [loading]);
 
   const handleSend = () => {
     const text = input.trim();
@@ -95,6 +105,7 @@ export default function FrenChat() {
                 <div className="dot" />
                 <div className="dot" />
               </div>
+              {isTakingLong && <div className="taking-long">El Fren está pensando...</div>}
             </div>
           )}
           <div ref={bottomRef} />
