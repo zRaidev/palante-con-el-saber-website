@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useFren } from "@/hooks/useFren";
 import "./FrenChat.css";
 
@@ -39,6 +39,18 @@ export default function FrenChat() {
     }
     setIsTakingLong(false);
   }, [loading]);
+
+  const formatBold = useCallback((text: string) => {
+    const escaped = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+    return escaped
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>');
+  }, []);
 
   const handleSend = () => {
     const text = input.trim();
@@ -92,9 +104,7 @@ export default function FrenChat() {
           {messages.map((msg, i) => (
             <div key={i} className={`msg-row ${msg.role}`}>
               {msg.role === "assistant" && <div className="avatar">🤠</div>}
-              <div className={`bubble ${msg.role}`}>
-                {msg.content.replace("[VEREDICTO_FINAL]", "").trim()}
-              </div>
+              <div className={`bubble ${msg.role}`} dangerouslySetInnerHTML={{ __html: formatBold(msg.content.replace("[VEREDICTO_FINAL]", "").trim()) }} />
             </div>
           ))}
           {loading && (
