@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import HtmlBackground from '@/components/html-background'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -30,9 +31,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" style={{ backgroundColor: '#0a1628' }}>
-      <body className="font-[system-ui] antialiased" style={{ backgroundColor: '#0a1628' }}>
+    <html lang="es">
+      <body className="font-[system-ui] antialiased">
         {children}
+        <HtmlBackground />
         <Analytics />
         <SpeedInsights />
       </body>
