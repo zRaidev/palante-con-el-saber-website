@@ -2,7 +2,7 @@ import FrenChat from '@/components/Chat/FrenChat';
 
 export default function ChatPage() {
   return (
-    <main>
+    <main style={{ background: '#0a1628' }}>
       <FrenChat />
     </main>
   );
