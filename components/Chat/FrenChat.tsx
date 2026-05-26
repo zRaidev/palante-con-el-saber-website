@@ -121,30 +121,33 @@ export default function FrenChat() {
           <div ref={bottomRef} />
         </div>
 
-        <div className="input-area">
-          <textarea
-            ref={inputRef}
-            className="input-box"
-            placeholder={isLocked ? "El proceso ha concluído" : "Chatea con El Fren..."}
-            value={input}
-            onChange={e => {
-              setInput(e.target.value);
-              e.target.style.height = "46px";
-              e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
-            }}
-            onKeyDown={handleKey}
-            rows={1}
-            disabled={loading || isLocked}
-          />
-          <button
-            className="send-btn"
-            onClick={handleSend}
-            disabled={loading || !input.trim() || isLocked}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a1628" strokeWidth="2.5">
-              <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
-            </svg>
-          </button>
+        <div className="input-area-wrapper">
+          <div className="input-area">
+            <textarea
+              ref={inputRef}
+              className="input-box"
+              placeholder={isLocked ? "El proceso ha concluído" : "Chatea con El Fren..."}
+              value={input}
+              onChange={e => {
+                setInput(e.target.value);
+                e.target.style.height = "46px";
+                e.target.style.height = Math.min(e.target.scrollHeight, 120) + "px";
+              }}
+              onKeyDown={handleKey}
+              rows={1}
+              disabled={loading || isLocked}
+            />
+            <button
+              className="send-btn"
+              onClick={handleSend}
+              disabled={loading || !input.trim() || isLocked}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a1628" strokeWidth="2.5">
+                <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" />
+              </svg>
+            </button>
+          </div>
+          <p className="disclaimer-text"><strong>El Fren</strong> es una IA y puede cometer errores.</p>
         </div>
       </div>
     </div>
