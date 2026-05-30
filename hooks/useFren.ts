@@ -38,7 +38,6 @@ export const useFren = () => {
   setMessages(newMessages);
   setLoading(true);
 
-  const apiKey = process.env.GEMINI_API_KEY;
   const history = newMessages.map(m => ({
     role: m.role === 'assistant' ? 'model' : 'user',
     parts: [{ text: m.content }]
@@ -54,70 +53,27 @@ export const useFren = () => {
     },
     ...history
   ];
-  const MODEL = "gemini-2.5-flash-lite";
-  const API_URL = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent?key=${apiKey}`;
-  const MAX_RETRIES = 2;
 
   try {
-    for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 30000);
+    const response = await fetch('/api/chat', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ contents: contentsWithContext })
+    });
 
-      try {
-        const response = await fetch(API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          signal: controller.signal,
-          body: JSON.stringify({
-            contents: contentsWithContext,
-            generationConfig: {
-              temperature: 0.7,
-              maxOutputTokens: 800,
-            }
-          })
-        });
-
-        clearTimeout(timeoutId);
-
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          console.error("Detalle del error:", errorData);
-
-          if ([502, 504, 429].includes(response.status) && attempt < MAX_RETRIES) {
-            const delay = 1500 * Math.pow(2, attempt);
-            console.warn(`Gemini respondió con ${response.status}, reintentando en ${delay}ms...`);
-            await new Promise(r => setTimeout(r, delay));
-            continue;
-          }
-
-          throw new Error(errorData.error?.message || `Error en la API (${response.status})`);
-        }
-
-        const data = await response.json();
-        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Chuzo, se me fue la onda. ¿Me repites?";
-        setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-        return;
-
-      } catch (e) {
-        clearTimeout(timeoutId);
-
-        if (e instanceof DOMException && e.name === 'AbortError') {
-          console.error("Timeout en useFren:", e);
-          setMessages(prev => [...prev, { role: 'assistant', content: "Chuzo, El Fren tardó mucho en responder. ¿Dale de nuevo?" }]);
-          return;
-        }
-
-        if (attempt < MAX_RETRIES) {
-          const delay = 1500 * Math.pow(2, attempt);
-          console.warn(`Error en intento ${attempt + 1}, reintentando en ${delay}ms...`, e);
-          await new Promise(r => setTimeout(r, delay));
-          continue;
-        }
-
-        console.error("Error en useFren tras agotar reintentos:", e);
-        setMessages(prev => [...prev, { role: 'assistant', content: "Ey fren, algo pasó con la conexión. Dale de nuevo." }]);
-      }
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Detalle del error:", errorData);
+      throw new Error(errorData.error?.message || `Error en la API (${response.status})`);
     }
+
+    const data = await response.json();
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Chuzo, se me fue la onda. ¿Me repites?";
+    setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
+
+  } catch (e) {
+    console.error("Error en useFren:", e);
+    setMessages(prev => [...prev, { role: 'assistant', content: "Ey fren, algo pasó con la conexión. Dale de nuevo." }]);
   } finally {
     setLoading(false);
   }
