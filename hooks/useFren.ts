@@ -38,7 +38,7 @@ export const useFren = () => {
   setMessages(newMessages);
   setLoading(true);
 
-  const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   const history = newMessages.map(m => ({
     role: m.role === 'assistant' ? 'model' : 'user',
     parts: [{ text: m.content }]
