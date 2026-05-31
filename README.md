@@ -7,6 +7,7 @@ Official repository for the Pa'lante Con El Saber platform. Developed as part of
 - Next.js 16 app router
 - Tailwind CSS v4 styling
 - Radix UI + custom UI components
+- AI chatbot "El Fren" powered by Gemini API
 - Contact form powered by EmailJS
 - Responsive layout for desktop and mobile
 - Simple page sections: hero, about, alliances, contact, footer
@@ -37,9 +38,13 @@ pnpm install
 
 ### Environment variables
 
-The contact form uses EmailJS and requires these public environment variables in a `.env.local` file:
+Create a `.env.local` file with the following variables:
 
 ```bash
+# Gemini API (server-side, for the AI chatbot)
+GEMINI_API_KEY=your_gemini_api_key
+
+# EmailJS (client-side, for the contact form)
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
@@ -74,7 +79,8 @@ pnpm lint
 ## Notes
 
 - `next.config.mjs` uses `typescript.ignoreBuildErrors: true` and `images.unoptimized: true`.
-- The site includes a client-side contact form in `components/contact-section.tsx`.
+- The AI chatbot lives in `app/chat/` with the hook in `hooks/useFren.ts` and the server-side proxy in `app/api/chat/route.ts`.
+- The contact form is in `components/contact-section.tsx`.
 
 ## License
 
